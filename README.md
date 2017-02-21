@@ -1,3 +1,7 @@
+# Electron Canvas
+
+This is for creating canvas illustrations. We're using electron because that means we don't have to worry about the browser and can more easily take and save screenshots, for art.
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
