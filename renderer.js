@@ -1,3 +1,33 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+'use strict';
+
+const Lines = require('./modules/lines');
+
+class Renderer {
+	constructor() {
+		this.canvas = document.getElementById('canvas');
+		this.ctx = this.canvas.getContext('2d');
+		this.width = null;
+		this.height = null;
+		this.addBindings();
+		this.addListeners();
+		this.update();
+		new Lines(this.canvas, this.ctx);
+	}
+
+	addBindings() {
+		this.update = this.update.bind(this);
+	}
+
+	addListeners() {
+		window.addEventListener('resize', this.update);
+	}
+
+	update() {
+		this.width = window.innerWidth;
+		this.height = window.innerHeight;
+		this.canvas.width = this.width;
+		this.canvas.height = this.height;
+	}
+}
+
+new Renderer();
