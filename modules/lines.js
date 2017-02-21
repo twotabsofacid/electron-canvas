@@ -5,12 +5,11 @@ const CONSTANTS = {
 	duration: 2000,
 	width: 2
 };
-
-
+const remote = require('electron').remote;
+const fs = require('fs-jetpack');
 
 class Lines {
 	constructor(canvas, ctx) {
-		console.log('we load the lines');
 		this.canvas = canvas;
 		this.ctx = ctx;
 		this.width = null;
@@ -20,6 +19,7 @@ class Lines {
 		this.addBindings();
 		this.addListeners();
 		this.update();
+		this.beforeStart();
 		this.makeDrawing();
 	}
 
@@ -37,6 +37,11 @@ class Lines {
 		this.height = window.innerHeight;
 	}
 
+	beforeStart() {
+		this.ctx.fillStyle = '#ffffff';
+		this.ctx.fillRect(0, 0, this.width, this.height);
+	}
+
 	makeDrawing() {
 		this.interval = window.setInterval(this.updateDrawing, CONSTANTS.interval);
 	}
@@ -48,6 +53,9 @@ class Lines {
 	updateDrawing() {
 		this.draw(Math.floor(Math.random() * this.width), Math.floor(Math.random() * this.height));
 		this.counter++;
+		if (this.counter % 100 === 0) {
+			this.takeScreenshot(this.counter / 100);
+		}
 		if (this.counter >= CONSTANTS.duration) {
 			this.stopDrawing();
 		}
@@ -64,6 +72,13 @@ class Lines {
 		var rgbString3 = 'rgb(' + Math.floor((x/this.width)*255) + ', 100,' + Math.floor((y/this.height)*255) + ')';
 		this.ctx.fillStyle = rgbString1;
 		this.ctx.fill();
+	}
+
+	takeScreenshot(index) {
+		const browserWindow = remote.getCurrentWindow();
+		browserWindow.capturePage((img) => {
+			fs.writeAsync('screenshots/lines-' + index + '.png', img.toPng());
+		});
 	}
 }
 
