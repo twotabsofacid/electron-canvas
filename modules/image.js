@@ -2,7 +2,8 @@
 
 const CONSTANTS = {
 	interval: 40,
-	duration: 500
+	duration: 500,
+	counterInterval: 20
 };
 
 const TakeScreenshot = require('./take-screenshot');
@@ -56,8 +57,8 @@ class Images {
 		this.draw(Math.floor(Math.random() * this.width), Math.floor(Math.random() * this.height));
 		this.counter++;
 		this.colorSwitchCount = (this.colorSwitchCount + 1) % 3;
-		if (this.counter % 100 === 0 && this.screenshot) {
-			this.takeScreenshot(this.counter / 100);
+		if (this.counter % CONSTANTS.counterInterval === 0 && this.screenshot) {
+			this.takeScreenshot(this.counter / CONSTANTS.counterInterval);
 		}
 		if (this.counter >= CONSTANTS.duration) {
 			this.stopDrawing();

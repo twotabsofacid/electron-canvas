@@ -11,7 +11,7 @@ class TakeScreenshot {
 	}
 	takeScreenshot(index) {
 		this.browserWindow.capturePage((img) => {
-			fs.writeAsync(this.directory + index + '.png', img.toPng());
+			fs.writeAsync(this.directory + index + '.jpg', img.toJpeg(80));
 		});
 	}
 }
