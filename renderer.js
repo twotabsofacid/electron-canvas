@@ -1,6 +1,7 @@
 'use strict';
 
 const Lines = require('./modules/lines');
+const Dots = require('./modules/dots');
 
 class Renderer {
 	constructor() {
@@ -12,6 +13,7 @@ class Renderer {
 		this.addListeners();
 		this.update();
 		new Lines(this.canvas, this.ctx);
+		new Dots(this.canvas, this.ctx);
 	}
 
 	addBindings() {
