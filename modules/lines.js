@@ -5,8 +5,8 @@ const CONSTANTS = {
 	duration: 2000,
 	width: 2
 };
-const remote = require('electron').remote;
-const fs = require('fs-jetpack');
+
+const TakeScreenshot = require('./take-screenshot');
 
 class Lines {
 	constructor(canvas, ctx) {
@@ -75,10 +75,7 @@ class Lines {
 	}
 
 	takeScreenshot(index) {
-		const browserWindow = remote.getCurrentWindow();
-		browserWindow.capturePage((img) => {
-			fs.writeAsync('screenshots/lines-' + index + '.png', img.toPng());
-		});
+		new TakeScreenshot(index, 'screenshots/lines-');
 	}
 }
 
