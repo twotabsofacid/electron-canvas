@@ -1,8 +1,8 @@
 'use strict';
 
 const CONSTANTS = {
-	interval: 10,
-	duration: 2000
+	interval: 40,
+	duration: 500
 };
 
 const TakeScreenshot = require('./take-screenshot');
@@ -12,7 +12,7 @@ class Images {
 		this.canvas = canvas;
 		this.ctx = ctx;
 		this.image = new Image();
-		this.image.src = 'img/corgi.png';
+		this.image.src = imgSrc;
 		this.width = null;
 		this.height = null;
 		this.interval = null;

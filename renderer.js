@@ -16,6 +16,7 @@ class Renderer {
 		new Lines(this.canvas, this.ctx, false);
 		//new Dots(this.canvas, this.ctx);
 		new Image(this.canvas, this.ctx, true, 'img/corgi.png');
+		//new Image(this.canvas, this.ctx, false, 'img/zizek.png');
 	}
 
 	addBindings() {
