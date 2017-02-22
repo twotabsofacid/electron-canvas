@@ -2,6 +2,7 @@
 
 const Lines = require('./modules/lines');
 const Dots = require('./modules/dots');
+const Image = require('./modules/image');
 
 class Renderer {
 	constructor() {
@@ -12,8 +13,9 @@ class Renderer {
 		this.addBindings();
 		this.addListeners();
 		this.update();
-		new Lines(this.canvas, this.ctx);
-		new Dots(this.canvas, this.ctx);
+		new Lines(this.canvas, this.ctx, false);
+		//new Dots(this.canvas, this.ctx);
+		new Image(this.canvas, this.ctx, true);
 	}
 
 	addBindings() {

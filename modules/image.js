@@ -8,11 +8,12 @@ const CONSTANTS = {
 
 const TakeScreenshot = require('./take-screenshot');
 
-class Dots {
+class Images {
 	constructor(canvas, ctx, shouldTakeScreenshots = false) {
 		this.canvas = canvas;
 		this.ctx = ctx;
-		this.colorSwitchCount = 0;
+		this.image = new Image();
+		this.image.src = 'img/zizek.png';
 		this.width = null;
 		this.height = null;
 		this.interval = null;
@@ -65,32 +66,16 @@ class Dots {
 	}
 
 	draw(x, y) {
-		let rgbString;
 		this.ctx.beginPath();
 		this.ctx.translate(this.width/2, this.height/2);
 		this.ctx.rotate(1.2*Math.PI/180);
 		this.ctx.translate(-this.width/2, -this.height/2);
-		this.ctx.arc(x, y, CONSTANTS.width, 0, 2 * Math.PI, false);
-		switch(this.colorSwitchCount) {
-			case 0:
-				rgbString = 'rgb(' + Math.floor((x/this.width)*255) + ', ' + Math.floor((y/this.height)*255) + ', 100)';
-				break;
-			case 1:
-				rgbString = 'rgb(100, ' + Math.floor((x/this.width)*255) + ', ' + Math.floor((y/this.height)*255) + ')';
-				break;
-			case 2:
-				rgbString = 'rgb(' + Math.floor((x/this.width)*255) + ', 100,' + Math.floor((y/this.height)*255) + ')';
-				break;
-			default:
-				rgbString = 'rgb(' + Math.floor((x/this.width)*255) + ', ' + Math.floor((y/this.height)*255) + ', 100)';
-		}
-		this.ctx.fillStyle = rgbString;
-		this.ctx.fill();
+		this.ctx.drawImage(this.image, x, y);
 	}
 
 	takeScreenshot(index) {
-		new TakeScreenshot(index, 'screenshots/dots-');
+		new TakeScreenshot(index, 'screenshots/image-');
 	}
 }
 
-module.exports = Dots;
+module.exports = Images;

@@ -9,13 +9,14 @@ const CONSTANTS = {
 const TakeScreenshot = require('./take-screenshot');
 
 class Lines {
-	constructor(canvas, ctx) {
+	constructor(canvas, ctx, shouldTakeScreenshots = false) {
 		this.canvas = canvas;
 		this.ctx = ctx;
 		this.width = null;
 		this.height = null;
 		this.interval = null;
 		this.counter = 0;
+		this.screenshot = shouldTakeScreenshots;
 		this.addBindings();
 		this.addListeners();
 		this.update();
@@ -53,7 +54,7 @@ class Lines {
 	updateDrawing() {
 		this.draw(Math.floor(Math.random() * this.width), Math.floor(Math.random() * this.height));
 		this.counter++;
-		if (this.counter % 100 === 0) {
+		if (this.counter % 100 === 0 && this.screenshot) {
 			this.takeScreenshot(this.counter / 100);
 		}
 		if (this.counter >= CONSTANTS.duration) {
