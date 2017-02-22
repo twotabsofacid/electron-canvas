@@ -2,18 +2,17 @@
 
 const CONSTANTS = {
 	interval: 10,
-	duration: 2000,
-	width: 5
+	duration: 2000
 };
 
 const TakeScreenshot = require('./take-screenshot');
 
 class Images {
-	constructor(canvas, ctx, shouldTakeScreenshots = false) {
+	constructor(canvas, ctx, shouldTakeScreenshots = false, imgSrc = 'img/corgi.png') {
 		this.canvas = canvas;
 		this.ctx = ctx;
 		this.image = new Image();
-		this.image.src = 'img/zizek.png';
+		this.image.src = 'img/corgi.png';
 		this.width = null;
 		this.height = null;
 		this.interval = null;

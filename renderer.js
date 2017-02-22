@@ -15,7 +15,7 @@ class Renderer {
 		this.update();
 		new Lines(this.canvas, this.ctx, false);
 		//new Dots(this.canvas, this.ctx);
-		new Image(this.canvas, this.ctx, true);
+		new Image(this.canvas, this.ctx, true, 'img/corgi.png');
 	}
 
 	addBindings() {
