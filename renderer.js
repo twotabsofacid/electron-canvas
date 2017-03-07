@@ -5,6 +5,7 @@ const Dots = require('./modules/dots');
 const Image = require('./modules/image');
 const CircleImage = require('./modules/circle-image');
 const TakeScreenshotOnSpacebar = require('./modules/take-screenshot-on-spacebar');
+const QuicksortImage = require('./modules/quicksort-image');
 
 class Renderer {
 	constructor() {
@@ -27,8 +28,9 @@ class Renderer {
 		// new CircleImage(this.canvas, this.ctx, 'img/tea.png', this.width - 260, 260, 300, 80, 80);
 		// new CircleImage(this.canvas, this.ctx, 'img/tea.png', 260, this.height - 260, 300, 80, 80);
 		// new CircleImage(this.canvas, this.ctx, 'img/tea.png', this.width - 260, this.height - 260, 300, 80, 80);
-		new CircleImage(this.canvas, this.ctx, 'img/corgi.png', this.width/2, this.height/2, 300, 100, 118);
+		// new CircleImage(this.canvas, this.ctx, 'img/corgi.png', this.width/2, this.height/2, 300, 100, 118);
 		new TakeScreenshotOnSpacebar();
+		new QuicksortImage(this.canvas, this.ctx, 'img/cat.png');
 	}
 
 	addBindings() {
