@@ -16,10 +16,10 @@ class Renderer {
 		this.addBindings();
 		this.addListeners();
 		this.update();
-		//new Lines(this.canvas, this.ctx, false);
-		//new Dots(this.canvas, this.ctx);
-		//new Image(this.canvas, this.ctx, true, 'img/corgi.png');
-		//new Image(this.canvas, this.ctx, false, 'img/zizek.png');
+		new Lines(this.canvas, this.ctx, false);
+		new Dots(this.canvas, this.ctx);
+		new Image(this.canvas, this.ctx, false, 'img/corgi.png');
+		// new Image(this.canvas, this.ctx, false, 'img/zizek.png');
 		// new CircleImage(this.canvas, this.ctx, 'img/corgi.png', 0, 0, 300, 50, 59);
 		// new CircleImage(this.canvas, this.ctx, 'img/corgi.png', this.width, 0, 300, 50, 59);
 		// new CircleImage(this.canvas, this.ctx, 'img/corgi.png', 0, this.height, 300, 50, 59);
