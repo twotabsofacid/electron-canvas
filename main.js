@@ -62,10 +62,6 @@ class Main {
 			}
 		});
 	}
-
-	takeScreenshot() {
-		screenshot('test');
-	}
 }
 
 new Main();
