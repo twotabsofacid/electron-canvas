@@ -6,7 +6,7 @@ const CONSTANTS = {
 	counterInterval: 20
 };
 
-const TakeScreenshot = require('./take-screenshot');
+const TakeScreenshot = require('./../helpers/take-screenshot');
 
 class Images {
 	constructor(canvas, ctx, shouldTakeScreenshots = false, imgSrc = 'img/corgi.png') {

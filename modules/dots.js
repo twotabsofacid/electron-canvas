@@ -6,7 +6,7 @@ const CONSTANTS = {
 	width: 5
 };
 
-const TakeScreenshot = require('./take-screenshot');
+const TakeScreenshot = require('./../helpers/take-screenshot');
 
 class Dots {
 	constructor(canvas, ctx, shouldTakeScreenshots = false) {

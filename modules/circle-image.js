@@ -4,7 +4,7 @@ const CONSTANTS = {
 	radius: 300
 };
 
-const TakeScreenshot = require('./take-screenshot');
+const TakeScreenshot = require('./../helpers/take-screenshot');
 
 class CircleImages {
 	constructor(canvas, ctx, imgSrc = 'img/corgi.png', x, y, radius, w, h) {
