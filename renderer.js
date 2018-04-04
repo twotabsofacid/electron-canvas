@@ -13,6 +13,7 @@ const TakeScreenshotOnSpacebar = require('./helpers/take-screenshot-on-spacebar'
  * Require all your modules here.
  * Modules should be in the /modules folder.
  */
+const Rectangles = require('./modules/rectangles');
 const Lines = require('./modules/lines');
 const Dots = require('./modules/dots');
 const Image = require('./modules/image');
@@ -48,8 +49,9 @@ class Renderer {
 	}
 
 	run() {
-		new Lines(this.canvas, this.ctx, false);
-		new Dots(this.canvas, this.ctx);
+		new Rectangles(this.canvas, this.ctx, false);
+		// new Lines(this.canvas, this.ctx, false);
+		// new Dots(this.canvas, this.ctx);
 		// new Image(this.canvas, this.ctx, false, 'img/corgi.png');
 		// new Image(this.canvas, this.ctx, false, 'img/zizek.png');
 		// new CircleImage(this.canvas, this.ctx, 'img/corgi.png', 0, 0, 300, 50, 59);
