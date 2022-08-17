@@ -4,8 +4,6 @@ const CONSTANTS = {
 	radius: 300
 };
 
-const TakeScreenshot = require('./../helpers/take-screenshot');
-
 class CircleImages {
 	constructor(canvas, ctx, imgSrc = 'img/corgi.png', x, y, radius, w, h) {
 		this.canvas = canvas;
@@ -50,7 +48,6 @@ class CircleImages {
 				y = this.y + this.radius * Math.sin(radians);
 				this.draw(x, y, this.w, this.h);
 			}
-			this.takeScreenshot(1);
 		}
 	}
 
@@ -59,9 +56,6 @@ class CircleImages {
 		this.ctx.drawImage(this.image, x - w/2, y - h/2, w, h);
 	}
 
-	takeScreenshot(index) {
-		new TakeScreenshot(index, 'screenshots/image-');
-	}
 }
 
 module.exports = CircleImages;
