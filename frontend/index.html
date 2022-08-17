@@ -14,7 +14,7 @@
       let connect = window.location.protocol + '//' + window.location.host;
       const socket = io(connect);
       document.addEventListener('keyup', (e) => {
-        if (e.key === 'r') {
+        if (e.key === 'x') {
           socket.emit('RESTART');
         }
       });
@@ -33,5 +33,6 @@
       };
     </script>
     <script src="/lib/p5.min.js"></script>
+    <script src="/js/buildings.js"></script>
   </body>
 </html>
