@@ -4,7 +4,7 @@ const CONSTANTS = {
 };
 
 class QuicksortImage {
-	constructor(canvas, ctx, imgSrc = 'img/cat.png') {
+	constructor(canvas, ctx, imgSrc = 'public/img/cat.png') {
 		this.canvas = canvas;
 		this.ctx = ctx;
 		this.image = new Image();
@@ -54,4 +54,4 @@ class QuicksortImage {
 
 }
 
-module.exports = QuicksortImage;
+export default QuicksortImage;
